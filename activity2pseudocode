@@ -3,15 +3,33 @@ SET COMMISSION_BONUS = 0.15
 
 SET total_commission = 0
 SET total_propeties_sold = 0
+SET valid = False
 
-SET number_of_employees = INPUT "How many employees are working this week: " min = 2 max = 5
+WHILE not valid
+    SET number_of_employees = INPUT "How many employees are working this week: "
+    IF number_of_employees > 5 or number_of_employees < 2
+        PRINT "Error: Must be between 0 and 5"
+    ELSE
+        valid = True
 SET employees = empty list
 
 SET counter = 1
 WHILE counter is not above number_of_employees
     SET name = INPUT "Enter employee's name: "
-    SET id_number = INPUT "Enter employee's' id number: " min = 1
-    SET properties_sold = INPUT "Enter how many properties employee has sold this week: " min = 0
+    valid = False
+    WHILE valid = False
+        SET id_number = INPUT "Enter employee's' id number: "
+        IF id_number < 1
+            PRINT "Error: Must be above 0
+        ELSE
+            valid = True
+    valid = False
+    WHILE valid = False
+        SET properties_sold = INPUT "Enter how many properties employee has sold this week: " min = 0
+        IF id_number < 0
+            PRINT "Error: Must be 0 or higher
+        ELSE
+            valid = True
     ADD to employees new employee with name, id_number and properties_sold
 
 SORT employees in ascending order by properties_sold
