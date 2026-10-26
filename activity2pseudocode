@@ -1,0 +1,31 @@
+SET COMMISSION_RATE = 500
+SET COMMISSION_BONUS = 0.15
+
+SET total_commission = 0
+SET total_propeties_sold = 0
+
+SET number_of_employees = INPUT "How many employees are working this week: " min = 2 max = 5
+SET employees = empty list
+
+SET counter = 1
+WHILE counter is not above number_of_employees
+    SET name = INPUT "Enter employee's name: "
+    SET id_number = INPUT "Enter employee's' id number: " min = 1
+    SET properties_sold = INPUT "Enter how many properties employee has sold this week: " min = 0
+    ADD to employees new employee with name, id_number and properties_sold
+
+SORT employees in ascending order by properties_sold
+for each employee in employees
+    SET commission = employee's properties_sold * COMMISSION_RATE
+    IF first employee
+        SET commision = commision * (1 + COMMISSION_BONUS)
+    PRINT employee's name, id_number and properties_sold
+    PRINT commission (to two decimal places)
+    SET total_commission = total_commission + commission
+    SET total_propeties_sold += total_propeties_sold + employee's properties_sold
+PRINT "Total sales commission " + total_commission (to two decimal places)
+PRINT "Total properties sold this week " + total_propeties_sold
+PRINT "Employee: " + first employee's name, id_number and properties_sold
+PRINT "Commission Rate " + first employee's properties_sold * COMMISSION_RATE (to two decimal places)
+PRINT "Commission Bonus " + (first employee's properties_sold * COMMISSION_RATE (to two decimal places)) * COMMISSION_BONUS
+PRINT "Total Commission " + (first employee's properties_sold * COMMISSION_RATE (to two decimal places)) * (1 + COMMISSION_BONUS)

@@ -63,7 +63,7 @@ if __name__ == '__main__':
         properties_sold = get_int(f"Enter how many properties employee {i + 1} has sold this week: ", min=0, max=None)
         employees.append(Employee(name, id_number, properties_sold))
 
-    employees = sorted(employees, key=lambda employee: employee.get_sales_commission(apply_bonus=False), reverse=True)
+    employees = sorted(employees, key=lambda employee: employee.properties_sold, reverse=True)
     for i in range(0, number_of_employees, 1):
         commission = employees[i].get_sales_commission(apply_bonus = (i == 0))
         print(employees[i], end='')
